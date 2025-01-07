@@ -1617,7 +1617,7 @@ void RandomizerOnVanillaBehaviorHandler(GIVanillaBehavior id, bool* should, va_l
             break;
         }
         case VB_FIX_MIDO_EMERALD_SOFTLOCK: {
-            *should = Flags_GetEventChkInf(EVENTCHKINF_USED_DEKU_TREE_BLUE_WARP) && gPlayState->sceneNum == SCENE_KOKIRI_FOREST;
+            *should = *should || Flags_GetEventChkInf(EVENTCHKINF_USED_DEKU_TREE_BLUE_WARP) && gPlayState->sceneNum == SCENE_KOKIRI_FOREST;
             break;
         }
         case VB_FREEZE_ON_SKULL_TOKEN:
