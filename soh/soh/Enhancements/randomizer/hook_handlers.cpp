@@ -1616,10 +1616,6 @@ void RandomizerOnVanillaBehaviorHandler(GIVanillaBehavior id, bool* should, va_l
             }
             break;
         }
-        case VB_FIX_MIDO_EMERALD_SOFTLOCK: {
-            *should = *should || Flags_GetEventChkInf(EVENTCHKINF_USED_DEKU_TREE_BLUE_WARP) && gPlayState->sceneNum == SCENE_KOKIRI_FOREST;
-            break;
-        }
         case VB_FREEZE_ON_SKULL_TOKEN:
         case VB_TRADE_TIMER_ODD_MUSHROOM:
         case VB_TRADE_TIMER_FROG:

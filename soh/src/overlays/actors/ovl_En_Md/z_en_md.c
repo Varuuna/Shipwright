@@ -796,7 +796,7 @@ void func_80AABD0C(EnMd* this, PlayState* play) {
 
     if (
         GameInteractor_Should(
-            VB_FIX_MIDO_EMERALD_SOFTLOCK,
+            VB_MIDO_CONSIDER_DEKU_TREE_DEAD,
             CHECK_QUEST_ITEM(QUEST_KOKIRI_EMERALD) && !Flags_GetEventChkInf(EVENTCHKINF_SPOKE_TO_MIDO_AFTER_DEKU_TREES_DEATH) &&
                 (play->sceneNum == SCENE_KOKIRI_FOREST))
     ) {

@@ -492,7 +492,6 @@ typedef enum {
     /*** Fixes ***/
     // Vanilla condition: false
     VB_FIX_SAW_SOFTLOCK,
-    VB_FIX_MIDO_EMERALD_SOFTLOCK,
 
     /*** Cheats? ***/
     VB_DEKU_STICK_BE_ON_FIRE,
