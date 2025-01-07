@@ -794,10 +794,13 @@ void func_80AABD0C(EnMd* this, PlayState* play) {
         return;
     }
 
-    if ((GameInteractor_Should(VB_FIX_MIDO_EMERALD_SOFTLOCK, false, this) && play->sceneNum == SCENE_KOKIRI_FOREST) || 
-        (CHECK_QUEST_ITEM(QUEST_KOKIRI_EMERALD) && !Flags_GetEventChkInf(EVENTCHKINF_SPOKE_TO_MIDO_AFTER_DEKU_TREES_DEATH) &&
-        (play->sceneNum == SCENE_KOKIRI_FOREST)))
-    {
+    if (
+        GameInteractor_Should(
+            VB_FIX_MIDO_EMERALD_SOFTLOCK,
+            CHECK_QUEST_ITEM(QUEST_KOKIRI_EMERALD) && !Flags_GetEventChkInf(EVENTCHKINF_SPOKE_TO_MIDO_AFTER_DEKU_TREES_DEATH) &&
+                (play->sceneNum == SCENE_KOKIRI_FOREST),
+            this)
+    ) {
         Message_CloseTextbox(play);
         Flags_SetEventChkInf(EVENTCHKINF_SPOKE_TO_MIDO_AFTER_DEKU_TREES_DEATH);
         Actor_Kill(&this->actor);
