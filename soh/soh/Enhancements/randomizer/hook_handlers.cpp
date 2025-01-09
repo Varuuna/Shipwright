@@ -1631,7 +1631,7 @@ void RandomizerOnVanillaBehaviorHandler(GIVanillaBehavior id, bool* should, va_l
             }
             break;
         }
-        case VB_PREVENT_ALARM_AT_FULL_HEALTH: {
+        case VB_HEALTH_METER_BE_CRITICAL: {
             if (gSaveContext.health == gSaveContext.healthCapacity) {
                 *should = false;
             }

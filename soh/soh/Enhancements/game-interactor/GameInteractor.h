@@ -303,7 +303,7 @@ typedef enum {
     // Vanilla condition: this->reward == GI_NONE
     VB_FROGS_GO_TO_IDLE,
     // Vanilla condition: var >= gSaveContext.health) && (gSaveContext.health > 0
-    VB_PREVENT_ALARM_AT_FULL_HEALTH,
+    VB_HEALTH_METER_BE_CRITICAL,
 
     /*** Play Cutscenes ***/
 

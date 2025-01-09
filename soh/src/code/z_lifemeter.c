@@ -675,7 +675,7 @@ u32 HealthMeter_IsCritical(void) {
         var = 0x2C;
     }
 
-    if (GameInteractor_Should(VB_PREVENT_ALARM_AT_FULL_HEALTH, var >= gSaveContext.health && gSaveContext.health > 0)) {
+    if (GameInteractor_Should(VB_HEALTH_METER_BE_CRITICAL, var >= gSaveContext.health && gSaveContext.health > 0)) {
         return true;
     } else {
         return false;
