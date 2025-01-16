@@ -1,11 +1,11 @@
-#include "ShuffleGrass.h"
+#include "grassanity.h"
 #include "soh_assets.h"
 #include "static_data.h"
 
 extern "C" {
 #include "variables.h"
 #include "overlays/actors/ovl_En_Kusa/z_en_kusa.h"
-#include <objects/gameplay_field_keep/gameplay_field_keep.h>
+#include "objects/gameplay_field_keep/gameplay_field_keep.h"
 #include "objects/object_kusa/object_kusa.h"
 extern PlayState* gPlayState;
 }
@@ -14,21 +14,21 @@ extern void EnItem00_DrawRandomizedItem(EnItem00* enItem00, PlayState* play);
 
 
 extern "C" void EnKusa_RandomizerDraw(Actor* thisx, PlayState* play) {
-    //float grassSize = 0.5f;
+    static Gfx* dLists[] = { (Gfx*)gFieldBushDL, (Gfx*)object_kusa_DL_000140, (Gfx*)object_kusa_DL_000140 };
+    auto grassActor = ((EnKusa*)thisx);
 
     OPEN_DISPS(play->state.gfxCtx);
     Gfx_SetupDL_25Opa(play->state.gfxCtx);
-    //Matrix_Scale(grassSize, grassSize, grassSize, MTXMODE_APPLY);
     gDPSetGrayscaleColor(POLY_OPA_DISP++, 0, 255, 0, 255);
-    gSPGrayscale(POLY_OPA_DISP++, true);
 
-    //gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(play->state.gfxCtx, (char*)__FILE__, __LINE__),
-    //            G_MTX_MODELVIEW | G_MTX_LOAD);
+    if (Flags_GetRandomizerInf(grassActor->grassIdentity.randomizerInf) == 0) {
+        gSPGrayscale(POLY_OPA_DISP++, true);
+    }
 
-    if (thisx->params == -255) {
-        gSPDisplayList(POLY_OPA_DISP++, (Gfx*)object_kusa_DL_000140);
+    if (grassActor->actor.flags & ACTOR_FLAG_GRASS_DESTROYED) {
+        Gfx_DrawDListOpa(play, (Gfx*)object_kusa_DL_0002E0);
     } else {
-        gSPDisplayList(POLY_OPA_DISP++, (Gfx*)gFieldBushDL);
+        Gfx_DrawDListOpa(play, dLists[grassActor->actor.params & 3]);
     }
 
     gSPGrayscale(POLY_OPA_DISP++, false);
@@ -41,7 +41,7 @@ uint8_t EnKusa_RandomizerHoldsItem(EnKusa* grassActor, PlayState* play) {
     uint8_t isDungeon = Rando::StaticData::GetLocation(rc)->IsDungeon();
     uint8_t grassSetting = Rando::Context::GetInstance()->GetOption(RSK_GRASSANITY).GetContextOptionIndex();
 
-    // Don't pull randomized item if pot isn't randomized or is already checked
+    // Don't pull randomized item if grass isn't randomized or is already checked
     if (!IS_RANDO || (grassSetting == RO_SHUFFLE_GRASS_OVERWORLD && isDungeon) ||
         (grassSetting == RO_SHUFFLE_GRASS_DUNGEONS && !isDungeon) ||
         Flags_GetRandomizerInf(grassActor->grassIdentity.randomizerInf) ||

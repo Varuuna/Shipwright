@@ -16,7 +16,7 @@
 #include "soh/Notification/Notification.h"
 #include "soh/SaveManager.h"
 #include "soh/Enhancements/randomizer/ShuffleFairies.h"
-#include "soh/Enhancements/randomizer/ShuffleGrass.h"
+#include "soh/Enhancements/randomizer/grassanity.h"
 
 extern "C" {
 #include "macros.h"
