@@ -30,6 +30,14 @@ void RegionTable_Init_Kakariko() {
         LOCATION(RC_KAK_NEAR_GUARDS_HOUSE_POT_1,     logic->IsChild && logic->CanBreakPots()),
         LOCATION(RC_KAK_NEAR_GUARDS_HOUSE_POT_2,     logic->IsChild && logic->CanBreakPots()),
         LOCATION(RC_KAK_NEAR_GUARDS_HOUSE_POT_3,     logic->IsChild && logic->CanBreakPots()),
+        LOCATION(RC_KAK_GRASS_1,                     logic->CanCutShrubs()),
+        LOCATION(RC_KAK_GRASS_2,                     logic->CanCutShrubs()),
+        LOCATION(RC_KAK_GRASS_3,                     logic->CanCutShrubs()),
+        LOCATION(RC_KAK_GRASS_4,                     logic->CanCutShrubs()),
+        LOCATION(RC_KAK_GRASS_5,                     logic->CanCutShrubs()),
+        LOCATION(RC_KAK_GRASS_6,                     logic->CanCutShrubs()),
+        LOCATION(RC_KAK_GRASS_7,                     logic->CanCutShrubs()),
+        LOCATION(RC_KAK_GRASS_8,                     logic->CanCutShrubs()),
     }, {
         //Exits
         Entrance(RR_HYRULE_FIELD,             []{return true;}),
