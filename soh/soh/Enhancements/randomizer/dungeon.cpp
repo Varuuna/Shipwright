@@ -155,6 +155,11 @@ std::vector<RandomizerCheck> DungeonInfo::GetDungeonLocations() const {
         auto potLocations = masterQuest ? mqPots : vanillaPots;
         AddElementsToPool(locations, potLocations);
     }
+    if (Context::GetInstance()->GetSettings()->GetOption(RSK_GRASSANITY).Is(RO_SHUFFLE_GRASS_DUNGEONS) ||
+        Context::GetInstance()->GetSettings()->GetOption(RSK_GRASSANITY).Is(RO_SHUFFLE_GRASS_ALL)) {
+        auto grassLocations = masterQuest ? mqGrass : vanillaGrass;
+        AddElementsToPool(locations, grassLocations);
+    }
     AddElementsToPool(locations, sharedLocations);
     AddElementsToPool(locations, bossRoomLocations);
     return locations;
@@ -221,6 +226,7 @@ Dungeons::Dungeons() {
                         RC_DEKU_TREE_LOBBY_GRASS_2,
                         RC_DEKU_TREE_LOBBY_GRASS_3,
                         RC_DEKU_TREE_LOBBY_GRASS_4,
+                        RC_DEKU_TREE_LOBBY_GRASS_5,
                     },
                     {
                         // MQ Grass

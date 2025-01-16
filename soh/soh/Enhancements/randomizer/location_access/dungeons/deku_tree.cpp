@@ -24,6 +24,11 @@ void RegionTable_Init_DekuTree() {
         LOCATION(RC_DEKU_TREE_MAP_CHEST,         true),
         LOCATION(RC_DEKU_TREE_LOBBY_LOWER_HEART, true),
         LOCATION(RC_DEKU_TREE_LOBBY_UPPER_HEART, logic->CanPassEnemy(RE_BIG_SKULLTULA)),
+        LOCATION(RC_DEKU_TREE_LOBBY_GRASS_1,     logic->CanCutShrubs()),
+        LOCATION(RC_DEKU_TREE_LOBBY_GRASS_2,     logic->CanCutShrubs()),
+        LOCATION(RC_DEKU_TREE_LOBBY_GRASS_3,     logic->CanCutShrubs()),
+        LOCATION(RC_DEKU_TREE_LOBBY_GRASS_4,     logic->CanCutShrubs()),
+        LOCATION(RC_DEKU_TREE_LOBBY_GRASS_5,     logic->CanCutShrubs()),
     }, {
         //Exits
         Entrance(RR_DEKU_TREE_ENTRYWAY,          []{return true;}),

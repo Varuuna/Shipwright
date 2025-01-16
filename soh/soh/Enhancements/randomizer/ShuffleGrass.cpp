@@ -19,8 +19,7 @@ extern "C" void EnKusa_RandomizerDraw(Actor* thisx, PlayState* play) {
     OPEN_DISPS(play->state.gfxCtx);
     Gfx_SetupDL_25Opa(play->state.gfxCtx);
     Matrix_Scale(grassSize, grassSize, grassSize, MTXMODE_APPLY);
-    gDPSetPrimColor(POLY_OPA_DISP++, 0, 0, 100, 255, 0, 255);
-    gDPSetEnvColor(POLY_OPA_DISP++, 255, 255, 255, 255);
+    gDPSetPrimColor(POLY_OPA_DISP++, 0, 0, 0, 255, 0, 255);
     gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(play->state.gfxCtx, (char*)__FILE__, __LINE__),
                 G_MTX_MODELVIEW | G_MTX_LOAD);
 
@@ -35,12 +34,12 @@ extern "C" void EnKusa_RandomizerDraw(Actor* thisx, PlayState* play) {
 
 uint8_t EnKusa_RandomizerHoldsItem(EnKusa* grassActor, PlayState* play) {
     RandomizerCheck rc = grassActor->grassIdentity.randomizerCheck;
-    //uint8_t isDungeon = Rando::StaticData::GetLocation(rc)->IsDungeon();
-    //uint8_t potSetting = Rando::Context::GetInstance()->GetOption(RSK_SHUFFLE_POTS).GetContextOptionIndex();
+    uint8_t isDungeon = Rando::StaticData::GetLocation(rc)->IsDungeon();
+    uint8_t grassSetting = Rando::Context::GetInstance()->GetOption(RSK_GRASSANITY).GetContextOptionIndex();
 
     // Don't pull randomized item if pot isn't randomized or is already checked
-    if (!IS_RANDO || /*(potSetting == RO_SHUFFLE_POTS_OVERWORLD && isDungeon) ||*/
-        /*(potSetting == RO_SHUFFLE_POTS_DUNGEONS && !isDungeon) ||*/
+    if (!IS_RANDO || (grassSetting == RO_SHUFFLE_GRASS_OVERWORLD && isDungeon) ||
+        (grassSetting == RO_SHUFFLE_GRASS_DUNGEONS && !isDungeon) ||
         Flags_GetRandomizerInf(grassActor->grassIdentity.randomizerInf) ||
         grassActor->grassIdentity.randomizerCheck == RC_UNKNOWN_CHECK) {
         return false;

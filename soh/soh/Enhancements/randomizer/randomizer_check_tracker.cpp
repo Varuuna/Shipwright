@@ -1236,10 +1236,22 @@ void LoadSettings() {
                 break;
         }
 
-        switch (OTRGlobals::Instance->gRandomizer->GetRandoSettingValue(RSK_SHUFFLE_GRASS)) {
-            default:
+        switch (OTRGlobals::Instance->gRandomizer->GetRandoSettingValue(RSK_GRASSANITY)) {
+            case RO_SHUFFLE_GRASS_ALL:
                 showOverworldGrass = true;
                 showDungeonGrass = true;
+                break;
+            case RO_SHUFFLE_GRASS_OVERWORLD:
+                showOverworldGrass = true;
+                showDungeonGrass = false;
+                break;
+            case RO_SHUFFLE_GRASS_DUNGEONS:
+                showOverworldGrass = false;
+                showDungeonGrass = true;
+                break;
+            default:
+                showOverworldGrass = false;
+                showDungeonGrass = false;
                 break;
         }
     } else { // Vanilla

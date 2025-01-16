@@ -144,8 +144,8 @@ void Context::GenerateLocationPool() {
         AddLocations(StaticData::GetOverworldPotLocations());
     }
 
-    if (mSettings->GetOption(RSK_SHUFFLE_GRASS).Is(RO_SHUFFLE_GRASS_OVERWORLD) ||
-        mSettings->GetOption(RSK_SHUFFLE_GRASS).Is(RO_SHUFFLE_GRASS_ALL)) {
+    if (mSettings->GetOption(RSK_GRASSANITY).Is(RO_SHUFFLE_GRASS_OVERWORLD) ||
+        mSettings->GetOption(RSK_GRASSANITY).Is(RO_SHUFFLE_GRASS_ALL)) {
         AddLocations(StaticData::GetOverworldGrassLocations());
     }
 

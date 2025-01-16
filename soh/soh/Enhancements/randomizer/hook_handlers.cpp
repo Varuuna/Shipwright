@@ -2492,7 +2492,7 @@ void RandomizerRegisterHooks() {
             ShuffleFairies_RegisterHooks();
         }
 
-        if (RAND_GET_OPTION(RSK_SHUFFLE_GRASS)) {
+        if (RAND_GET_OPTION(RSK_GRASSANITY)) {
             shuffleGrassOnActorInitHook = GameInteractor::Instance->RegisterGameHook<GameInteractor::OnActorInit>(EnKusa_RandomizerInit);
             shuffleGrassOnVanillaBehaviorHook = GameInteractor::Instance->RegisterGameHook<GameInteractor::OnVanillaBehavior>(ShuffleGrass_OnVanillaBehaviorHandler);
         }
