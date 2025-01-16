@@ -3001,6 +3001,7 @@ typedef enum {
     RC_ZR_GRASS_11,
     RC_ZR_GRASS_12,
     RC_ZR_GRASS_13,
+    RC_ZR_GRASS_14,
     // Grotto Grass
     // RC_KF_STORMS_GROTTO_GRASS_1,
     // RC_KF_STORMS_GROTTO_GRASS_2,

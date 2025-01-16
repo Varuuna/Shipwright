@@ -14,20 +14,24 @@ extern void EnItem00_DrawRandomizedItem(EnItem00* enItem00, PlayState* play);
 
 
 extern "C" void EnKusa_RandomizerDraw(Actor* thisx, PlayState* play) {
-    float grassSize = 0.5f;
+    //float grassSize = 0.5f;
 
     OPEN_DISPS(play->state.gfxCtx);
     Gfx_SetupDL_25Opa(play->state.gfxCtx);
-    Matrix_Scale(grassSize, grassSize, grassSize, MTXMODE_APPLY);
-    gDPSetPrimColor(POLY_OPA_DISP++, 0, 0, 0, 255, 0, 255);
-    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(play->state.gfxCtx, (char*)__FILE__, __LINE__),
-                G_MTX_MODELVIEW | G_MTX_LOAD);
+    //Matrix_Scale(grassSize, grassSize, grassSize, MTXMODE_APPLY);
+    gDPSetGrayscaleColor(POLY_OPA_DISP++, 0, 255, 0, 255);
+    gSPGrayscale(POLY_OPA_DISP++, true);
+
+    //gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(play->state.gfxCtx, (char*)__FILE__, __LINE__),
+    //            G_MTX_MODELVIEW | G_MTX_LOAD);
 
     if (thisx->params == -255) {
         gSPDisplayList(POLY_OPA_DISP++, (Gfx*)object_kusa_DL_000140);
     } else {
         gSPDisplayList(POLY_OPA_DISP++, (Gfx*)gFieldBushDL);
     }
+
+    gSPGrayscale(POLY_OPA_DISP++, false);
 
     CLOSE_DISPS(play->state.gfxCtx);
 }

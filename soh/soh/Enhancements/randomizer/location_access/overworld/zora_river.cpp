@@ -60,6 +60,7 @@ void RegionTable_Init_ZoraRiver() {
         LOCATION(RC_ZR_NEAR_GROTTOS_GOSSIP_STONE,            true),
         LOCATION(RC_ZR_NEAR_DOMAIN_GOSSIP_STONE,             true),
         LOCATION(RC_ZR_GRASS_13,                             logic->IsChild && logic->CanCutShrubs()),
+        LOCATION(RC_ZR_GRASS_14,                             logic->IsAdult && logic->CanCutShrubs()),
     }, {
         //Exits
         Entrance(RR_ZR_FRONT,            []{return true;}),
