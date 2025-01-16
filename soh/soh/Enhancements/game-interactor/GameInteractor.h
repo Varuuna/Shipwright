@@ -302,6 +302,9 @@ typedef enum {
     // Opt: *EnFr
     // Vanilla condition: this->reward == GI_NONE
     VB_FROGS_GO_TO_IDLE,
+    // Opt: *EnKusa
+    VB_GRASS_SETUP_DRAW,
+    VB_GRASS_DROP_ITEM,
 
     /*** Play Cutscenes ***/
 

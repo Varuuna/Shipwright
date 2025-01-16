@@ -11,7 +11,17 @@ void RegionTable_Init_CastleTown() {
                   Entrance(RR_MARKET_GUARD_HOUSE, {[]{return true;}}),
   });
 
-  areaTable[RR_THE_MARKET] = Region("Market", "Market", {RA_THE_MARKET}, NO_DAY_NIGHT_CYCLE, {}, {}, {
+  areaTable[RR_THE_MARKET] = Region("Market", "Market", {RA_THE_MARKET}, NO_DAY_NIGHT_CYCLE, {}, {
+                  // Locations
+                  LOCATION(RC_MARKET_GRASS_1, logic->IsChild && logic->CanCutShrubs()),
+                  LOCATION(RC_MARKET_GRASS_2, logic->IsChild && logic->CanCutShrubs()),
+                  LOCATION(RC_MARKET_GRASS_3, logic->IsChild && logic->CanCutShrubs()),
+                  LOCATION(RC_MARKET_GRASS_4, logic->IsChild && logic->CanCutShrubs()),
+                  LOCATION(RC_MARKET_GRASS_5, logic->IsChild && logic->CanCutShrubs()),
+                  LOCATION(RC_MARKET_GRASS_6, logic->IsChild && logic->CanCutShrubs()),
+                  LOCATION(RC_MARKET_GRASS_7, logic->IsChild && logic->CanCutShrubs()),
+                  LOCATION(RC_MARKET_GRASS_8, logic->IsChild && logic->CanCutShrubs()),
+                }, {
                   //Exits
                   Entrance(RR_MARKET_ENTRANCE,            {[]{return true;}}),
                   Entrance(RR_TOT_ENTRANCE,               {[]{return true;}}),
@@ -105,6 +115,8 @@ void RegionTable_Init_CastleTown() {
                   LOCATION(RC_HC_ROCK_WALL_GOSSIP_STONE_FAIRY_BIG, logic->CanUse(RG_SONG_OF_STORMS)),
                   LOCATION(RC_HC_MALON_GOSSIP_STONE,               true),
                   LOCATION(RC_HC_ROCK_WALL_GOSSIP_STONE,           true),
+                  LOCATION(RC_HC_GRASS_1,                          logic->CanCutShrubs()),
+                  LOCATION(RC_HC_GRASS_2,                          logic->CanCutShrubs()),
                 }, {
                   //Exits
                   Entrance(RR_CASTLE_GROUNDS,          {[]{return true;}}),

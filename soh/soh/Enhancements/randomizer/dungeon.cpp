@@ -11,12 +11,14 @@ DungeonInfo::DungeonInfo(std::string name_, const RandomizerHintTextKey hintKey_
     const RandomizerSettingKey mqSetting_,
     std::vector<RandomizerCheck> vanillaLocations_, std::vector<RandomizerCheck> mqLocations_,
     std::vector<RandomizerCheck> vanillaPots_, std::vector<RandomizerCheck> mqPots_,
+    std::vector<RandomizerCheck> vanillaGrass_, std::vector<RandomizerCheck> mqGrass_,
     std::vector<RandomizerCheck> sharedLocations_, std::vector<RandomizerCheck> bossRoomLocations_)
     : name(std::move(name_)), hintKey(hintKey_), map(map_), compass(compass_), smallKey(smallKey_), keyRing(keyRing_),
       bossKey(bossKey_), area(area_), vanillaKeyCount(vanillaKeyCount_), mqKeyCount(mqKeyCount_),
       mqSetting(mqSetting_),
       vanillaLocations(std::move(vanillaLocations_)), mqLocations(std::move(mqLocations_)),
       vanillaPots(std::move(vanillaPots_)), mqPots(std::move(mqPots_)),
+      vanillaGrass(std::move(vanillaGrass_)), mqGrass(std::move(mqGrass_)),
       sharedLocations(std::move(sharedLocations_)), bossRoomLocations(std::move(bossRoomLocations_)) {
 }
 DungeonInfo::DungeonInfo() : hintKey(RHT_NONE), map(RG_NONE), compass(RG_NONE), smallKey(RG_NONE), keyRing(RG_NONE),
@@ -212,7 +214,18 @@ Dungeons::Dungeons() {
                         RC_DEKU_TREE_MQ_BEFORE_BOSS_MIDDLE_HEART,
                         RC_DEKU_TREE_MQ_BEFORE_BOSS_RIGHT_HEART,
                     },
-                    {}, {}, {},
+                    {}, {}, 
+                    {
+                        // Vanilla Grass
+                        RC_DEKU_TREE_LOBBY_GRASS_1,
+                        RC_DEKU_TREE_LOBBY_GRASS_2,
+                        RC_DEKU_TREE_LOBBY_GRASS_3,
+                        RC_DEKU_TREE_LOBBY_GRASS_4,
+                    },
+                    {
+                        // MQ Grass
+                    },
+                    {},
                     {
                         // Boss Room Locations
                         RC_DEKU_TREE_QUEEN_GOHMA_HEART,
@@ -329,6 +342,12 @@ Dungeons::Dungeons() {
                                                    RC_DODONGOS_CAVERN_MQ_BACKROOM_POT_1,
                                                    RC_DODONGOS_CAVERN_MQ_BACKROOM_POT_2,
                                                },
+                                               {
+                                                   // Vanilla Grass
+                                               },
+                                               {
+                                                   // MQ Grass
+                                               },
                                                {},
                                                {
                                                    // Boss Room Locations
@@ -415,6 +434,10 @@ Dungeons::Dungeons() {
                                                     RC_JABU_JABUS_BELLY_BARINADE_POT_5,
                                                     RC_JABU_JABUS_BELLY_BARINADE_POT_6,
                                                 }, 
+                                                {},
+                                                {
+                                                    // MQ Grass
+                                                },
                                                 {},
                                                 {
                                                     // Boss Room Locations
@@ -521,7 +544,7 @@ Dungeons::Dungeons() {
                         RC_FOREST_TEMPLE_MQ_BASEMENT_POT_3,
                         RC_FOREST_TEMPLE_MQ_BASEMENT_POT_4,
                     },
-                    {},
+                    {}, {}, {},
                     {
                         // Boss Room Locations
                         RC_FOREST_TEMPLE_PHANTOM_GANON_HEART,
@@ -635,7 +658,7 @@ Dungeons::Dungeons() {
                         RC_FIRE_TEMPLE_MQ_BEFORE_MINI_BOSS_POT_7,
                         RC_FIRE_TEMPLE_MQ_BEFORE_MINI_BOSS_POT_8,
                     },
-                    {},
+                    {}, {}, {},
                     {
                         // Boos Room Locations
                         RC_FIRE_TEMPLE_VOLVAGIA_HEART,
@@ -743,7 +766,7 @@ Dungeons::Dungeons() {
                         RC_WATER_TEMPLE_MQ_LOWEST_GS_POT_4,
                         RC_WATER_TEMPLE_MQ_BOSS_KEY_POT,
                     },
-                    {},
+                    {}, {}, {},
                     {
                         // Boss Room Locations
                         RC_WATER_TEMPLE_MORPHA_HEART,
@@ -863,6 +886,7 @@ Dungeons::Dungeons() {
                         RC_SPIRIT_TEMPLE_MQ_EARLY_ADULT_POT_1,
                         RC_SPIRIT_TEMPLE_MQ_EARLY_ADULT_POT_2,
                     },
+                    {}, {},
                     {
                         // Shared Locations
                         RC_SPIRIT_TEMPLE_SILVER_GAUNTLETS_CHEST,
@@ -993,7 +1017,7 @@ Dungeons::Dungeons() {
                         RC_SHADOW_TEMPLE_MQ_DEAD_HAND_POT_1,
                         RC_SHADOW_TEMPLE_MQ_DEAD_HAND_POT_2,
                     },
-                    {},
+                    {}, {}, {},
                     {
                         // Boss Room Locations
                         RC_SHADOW_TEMPLE_BONGO_BONGO_HEART,
@@ -1082,6 +1106,12 @@ Dungeons::Dungeons() {
             RC_BOTTOM_OF_THE_WELL_MQ_EAST_INNER_ROOM_POT_2,
             RC_BOTTOM_OF_THE_WELL_MQ_EAST_INNER_ROOM_POT_3,
         },
+        {
+            // Vanilla Grass
+        },
+        {
+            // MQ Grass
+        },
         {}, {});
     dungeonList[ICE_CAVERN] = DungeonInfo("Ice Cavern", RHT_ICE_CAVERN, RG_ICE_CAVERN_MAP, RG_ICE_CAVERN_COMPASS,
                                           RG_NONE, RG_NONE, RG_NONE, RA_ICE_CAVERN, 0, 0, RSK_MQ_ICE_CAVERN,
@@ -1138,6 +1168,7 @@ Dungeons::Dungeons() {
                                               RC_ICE_CAVERN_MQ_COMPASS_POT_1,
                                               RC_ICE_CAVERN_MQ_COMPASS_POT_2,
                                           },
+                                          {}, {},
                                           {
                                               // Shared Locations
                                               RC_SHEIK_IN_ICE_CAVERN,
@@ -1201,7 +1232,7 @@ Dungeons::Dungeons() {
                         RC_GERUDO_TRAINING_GROUND_MQ_LOBBY_LEFT_POT_2,
                         RC_GERUDO_TRAINING_GROUND_MQ_LOBBY_RIGHT_POT_1,
                         RC_GERUDO_TRAINING_GROUND_MQ_LOBBY_RIGHT_POT_2,
-                    }, {}, {});
+                    }, {}, {}, {}, {});
     dungeonList[GANONS_CASTLE] =
         DungeonInfo("Ganon's Castle", RHT_GANONS_CASTLE, RG_NONE, RG_NONE, RG_GANONS_CASTLE_SMALL_KEY,
                     RG_GANONS_CASTLE_KEY_RING, RG_GANONS_CASTLE_BOSS_KEY, RA_GANONS_CASTLE, 2, 3, RSK_MQ_GANONS_CASTLE,
@@ -1347,6 +1378,7 @@ Dungeons::Dungeons() {
                         RC_GANONS_CASTLE_GANONS_TOWER_POT_17,
                         RC_GANONS_CASTLE_GANONS_TOWER_POT_18,
                     },
+                    {}, {},
                     {
                         // Shared Locations
                         RC_GANONS_TOWER_BOSS_KEY_CHEST,

@@ -30,6 +30,14 @@ void RegionTable_Init_Kakariko() {
                   LOCATION(RC_KAK_NEAR_GUARDS_HOUSE_POT_1,     logic->IsChild && logic->CanBreakPots()),
                   LOCATION(RC_KAK_NEAR_GUARDS_HOUSE_POT_2,     logic->IsChild && logic->CanBreakPots()),
                   LOCATION(RC_KAK_NEAR_GUARDS_HOUSE_POT_3,     logic->IsChild && logic->CanBreakPots()),
+                  LOCATION(RC_KAK_GRASS_1,                     logic->CanCutShrubs()),
+                  LOCATION(RC_KAK_GRASS_2,                     logic->CanCutShrubs()),
+                  LOCATION(RC_KAK_GRASS_3,                     logic->CanCutShrubs()),
+                  LOCATION(RC_KAK_GRASS_4,                     logic->CanCutShrubs()),
+                  LOCATION(RC_KAK_GRASS_5,                     logic->CanCutShrubs()),
+                  LOCATION(RC_KAK_GRASS_6,                     logic->CanCutShrubs()),
+                  LOCATION(RC_KAK_GRASS_7,                     logic->CanCutShrubs()),
+                  LOCATION(RC_KAK_GRASS_8,                     logic->CanCutShrubs()),
                 }, {
                   //Exits
                   Entrance(RR_HYRULE_FIELD,             {[]{return true;}}),
@@ -254,6 +262,18 @@ void RegionTable_Init_Kakariko() {
                   LOCATION(RC_GRAVEYARD_BEAN_SPROUT_FAIRY_1,     logic->IsChild && logic->CanUse(RG_MAGIC_BEAN) && logic->CanUse(RG_SONG_OF_STORMS)),
                   LOCATION(RC_GRAVEYARD_BEAN_SPROUT_FAIRY_2,     logic->IsChild && logic->CanUse(RG_MAGIC_BEAN) && logic->CanUse(RG_SONG_OF_STORMS)),
                   LOCATION(RC_GRAVEYARD_BEAN_SPROUT_FAIRY_3,     logic->IsChild && logic->CanUse(RG_MAGIC_BEAN) && logic->CanUse(RG_SONG_OF_STORMS)),
+                  LOCATION(RC_GY_GRASS_1,                        logic->CanCutShrubs()),
+                  LOCATION(RC_GY_GRASS_2,                        logic->CanCutShrubs()),
+                  LOCATION(RC_GY_GRASS_3,                        logic->CanCutShrubs()),
+                  LOCATION(RC_GY_GRASS_4,                        logic->CanCutShrubs()),
+                  LOCATION(RC_GY_GRASS_5,                        logic->CanCutShrubs()),
+                  LOCATION(RC_GY_GRASS_6,                        logic->CanCutShrubs()),
+                  LOCATION(RC_GY_GRASS_7,                        logic->CanCutShrubs()),
+                  LOCATION(RC_GY_GRASS_8,                        logic->CanCutShrubs()),
+                  LOCATION(RC_GY_GRASS_9,                        logic->CanCutShrubs()),
+                  LOCATION(RC_GY_GRASS_10,                       logic->CanCutShrubs()),
+                  LOCATION(RC_GY_GRASS_11,                       logic->CanCutShrubs()),
+                  LOCATION(RC_GY_GRASS_12,                       logic->CanCutShrubs()),
                 }, {
                   //Exits
                   Entrance(RR_GRAVEYARD_SHIELD_GRAVE,       {[]{return logic->IsAdult || logic->AtNight;}}),

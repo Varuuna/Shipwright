@@ -448,6 +448,7 @@ void Settings::CreateOptionDescriptions() {
                                               "All Items - Shuffle all freestanding rupees & hearts.";
     mOptionDescriptions[RSK_SHUFFLE_FAIRIES] =
         "Shuffle fairy locations.";
+    mOptionDescriptions[RSK_SHUFFLE_GRASS] = "Shuffle grass patches.";
     mOptionDescriptions[RSK_SHUFFLE_DUNGEON_REWARDS] =
         "Shuffles the location of Spiritual Stones and medallions.\n"
         "\n"
