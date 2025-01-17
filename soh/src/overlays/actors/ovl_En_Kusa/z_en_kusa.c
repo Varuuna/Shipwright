@@ -126,7 +126,6 @@ s32 EnKusa_SnapToFloor(EnKusa* this, PlayState* play, f32 yOffset) {
 
 void EnKusa_DropCollectible(EnKusa* this, PlayState* play) {
     s16 dropParams = this->actor.params & 0x1F;
-    //s16 dropParams;
 
     if (GameInteractor_Should(VB_GRASS_DROP_ITEM, false, this)) {
         switch (this->actor.params & 3) {
@@ -151,32 +150,6 @@ void EnKusa_DropCollectible(EnKusa* this, PlayState* play) {
                 break;
         }
     }
-
-    /*if (GameInteractor_Should(VB_GRASS_DROP_ITEM, false)) {
-        Item_DropCollectible(play, &this->actor.world.pos, (dropParams | (((this->actor.params >> 9) & 0x3F) << 8)));
-    } else {
-        switch (this->actor.params & 3) {
-            case ENKUSA_TYPE_0:
-            case ENKUSA_TYPE_2:
-                dropParams = (this->actor.params >> 8) & 0xF;
-
-                if (dropParams >= 0xD) {
-                    dropParams = 0;
-                }
-                Item_DropCollectibleRandom(play, NULL, &this->actor.world.pos, dropParams << 4);
-                break;
-            case ENKUSA_TYPE_1:
-                if (CVarGetInteger(CVAR_ENHANCEMENT("NoRandomDrops"), 0)) {
-                } else if (CVarGetInteger(CVAR_ENHANCEMENT("NoHeartDrops"), 0)) {
-                    Item_DropCollectible(play, &this->actor.world.pos, ITEM00_SEEDS);
-                } else if (Rand_ZeroOne() < 0.5f) {
-                    Item_DropCollectible(play, &this->actor.world.pos, ITEM00_SEEDS);
-                } else {
-                    Item_DropCollectible(play, &this->actor.world.pos, ITEM00_HEART);
-                }
-                break;
-        }
-    }*/
 }
 
 void EnKusa_UpdateVelY(EnKusa* this) {
