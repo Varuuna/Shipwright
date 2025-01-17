@@ -445,9 +445,21 @@ Dungeons::Dungeons() {
                                                },
                                                {
                                                    // Vanilla Grass
+                                                   RC_DODONGOS_CAVERN_FIRST_BRIDGE_GRASS,
+                                                   RC_DODONGOS_CAVERN_BLADE_GRASS,
+                                                   RC_DODONGOS_CAVERN_SINGLE_EYE_GRASS,
+                                                   RC_DODONGOS_CAVERN_BEFORE_BOSS_GRASS,
                                                },
                                                {
                                                    // MQ Grass
+                                                   RC_DODONGOS_CAVERN_MQ_COMPASS_GRASS_1,
+                                                   RC_DODONGOS_CAVERN_MQ_COMPASS_GRASS_2,
+                                                   RC_DODONGOS_CAVERN_MQ_COMPASS_GRASS_3,
+                                                   RC_DODONGOS_CAVERN_MQ_COMPASS_GRASS_4,
+                                                   RC_DODONGOS_CAVERN_MQ_ARMOS_GRASS,
+                                                   RC_DODONGOS_CAVERN_MQ_BACK_POE_GRASS,
+                                                   RC_DODONGOS_CAVERN_MQ_SCRUB_GRASS_1,
+                                                   RC_DODONGOS_CAVERN_MQ_SCRUB_GRASS_2,
                                                },
                                                {},
                                                {
