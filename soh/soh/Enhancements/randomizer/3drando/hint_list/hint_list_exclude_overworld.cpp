@@ -1972,5 +1972,9 @@ void StaticData::HintTable_Init_Exclude_Overworld() {
                                /*german*/ "!!!",
                                /*french*/ "!!!", { QM_RED, QM_GREEN }));
 
+    hintTextTable[RHT_GROTTO_GRASS] = HintText(CustomMessage("They say that #cutting some grass in a grotto# reveals #[[1]]#.",
+                               /*german*/ "!!!",
+                               /*french*/ "!!!", { QM_RED, QM_GREEN }));
+
 }
 }
