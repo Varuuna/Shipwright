@@ -1186,10 +1186,10 @@ std::map<RandomizerCheck, RandomizerInf> rcToRandomizerInf = {
     { RC_ZR_GRASS_12,                                                 RAND_INF_ZR_GRASS_12 },
     { RC_ZR_GRASS_13,                                                 RAND_INF_ZR_GRASS_13 },
     // Grotto Grass
-    //{ RC_KF_STORMS_GROTTO_GRASS_1, RAND_INF_KF_STORMS_GROTTO_GRASS_1 },
-    //{ RC_KF_STORMS_GROTTO_GRASS_2, RAND_INF_KF_STORMS_GROTTO_GRASS_2 },
-    //{ RC_KF_STORMS_GROTTO_GRASS_3, RAND_INF_KF_STORMS_GROTTO_GRASS_3 },
-    //{ RC_KF_STORMS_GROTTO_GRASS_4, RAND_INF_KF_STORMS_GROTTO_GRASS_4 },
+    { RC_KF_STORMS_GROTTO_GRASS_1,                         RAND_INF_KF_STORMS_GROTTO_GRASS_1 },
+    { RC_KF_STORMS_GROTTO_GRASS_2,                         RAND_INF_KF_STORMS_GROTTO_GRASS_2 },
+    { RC_KF_STORMS_GROTTO_GRASS_3,                         RAND_INF_KF_STORMS_GROTTO_GRASS_3 },
+    { RC_KF_STORMS_GROTTO_GRASS_4,                         RAND_INF_KF_STORMS_GROTTO_GRASS_4 },
     // Dungeon Grass
     { RC_DEKU_TREE_LOBBY_GRASS_1,                          RAND_INF_DEKU_TREE_LOBBY_GRASS_1 },
     { RC_DEKU_TREE_LOBBY_GRASS_2,                          RAND_INF_DEKU_TREE_LOBBY_GRASS_2 },
@@ -2155,15 +2155,21 @@ FishIdentity Randomizer::IdentifyFish(s32 sceneNum, s32 actorParams) {
     return fishIdentity;
 }
 
-GrassIdentity Randomizer::IdentifyGrass(s32 sceneNum, s32 posX, s32 posZ) {
+GrassIdentity Randomizer::IdentifyGrass(s32 sceneNum, s32 posX, s32 posZ, s32 respawnData) {
     struct GrassIdentity grassIdentity;
 
     grassIdentity.randomizerInf = RAND_INF_MAX;
     grassIdentity.randomizerCheck = RC_UNKNOWN_CHECK;
 
-    s32 actorParams = TWO_ACTOR_PARAMS(posX, posZ);
+    //s32 actorParams = TWO_ACTOR_PARAMS(posX, posZ);
 
-    Rando::Location* location = GetCheckObjectFromActor(ACTOR_EN_KUSA, sceneNum, actorParams);
+    if (sceneNum == SCENE_GROTTOS) {
+        respawnData = TWO_ACTOR_PARAMS(posX, respawnData);
+    } else {
+        respawnData = TWO_ACTOR_PARAMS(posX, posZ);
+    }
+
+    Rando::Location* location = GetCheckObjectFromActor(ACTOR_EN_KUSA, sceneNum, respawnData);
 
     if (location->GetRandomizerCheck() != RC_UNKNOWN_CHECK) {
         grassIdentity.randomizerInf = rcToRandomizerInf[location->GetRandomizerCheck()];

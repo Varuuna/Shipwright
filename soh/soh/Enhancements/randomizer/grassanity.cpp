@@ -68,8 +68,9 @@ void EnKusa_RandomizerInit(void* actorRef) {
     if (actor->id != ACTOR_EN_KUSA) return;
 
     EnKusa* grassActor = static_cast<EnKusa*>(actorRef);
+    s16 respawnData = gSaveContext.respawn[RESPAWN_MODE_RETURN].data & ((1 << 8) - 1);
 
-    grassActor->grassIdentity = OTRGlobals::Instance->gRandomizer->IdentifyGrass(gPlayState->sceneNum, (s16)actor->world.pos.x, (s16)actor->world.pos.z);
+    grassActor->grassIdentity = OTRGlobals::Instance->gRandomizer->IdentifyGrass(gPlayState->sceneNum, (s16)actor->world.pos.x, (s16)actor->world.pos.z, respawnData);
 }
 
 void ShuffleGrass_OnVanillaBehaviorHandler(GIVanillaBehavior id, bool* should, va_list originalArgs) {
