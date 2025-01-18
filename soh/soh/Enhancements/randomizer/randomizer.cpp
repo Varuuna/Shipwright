@@ -2201,6 +2201,10 @@ GrassIdentity Randomizer::IdentifyGrass(s32 sceneNum, s32 posX, s32 posZ, s32 re
     if (sceneNum == SCENE_GROTTOS) {
         respawnData = TWO_ACTOR_PARAMS(posX, respawnData);
     } else {
+        if (sceneNum == SCENE_MARKET_NIGHT) {
+            sceneNum = SCENE_MARKET_DAY;
+        }
+
         respawnData = TWO_ACTOR_PARAMS(posX, posZ);
     }
 
