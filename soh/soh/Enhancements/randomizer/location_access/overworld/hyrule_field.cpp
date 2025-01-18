@@ -88,6 +88,10 @@ void RegionTable_Init_HyruleField() {
         LOCATION(RC_HF_SOUTHEAST_GROTTO_GOSSIP_STONE,           true),
         LOCATION(RC_HF_SOUTHEAST_GROTTO_BEEHIVE_LEFT,           logic->CanBreakLowerBeehives()),
         LOCATION(RC_HF_SOUTHEAST_GROTTO_BEEHIVE_RIGHT,          logic->CanBreakLowerBeehives()),
+        LOCATION(RC_HF_SOUTHEAST_GROTTO_GRASS_1,                logic->CanCutShrubs()),
+        LOCATION(RC_HF_SOUTHEAST_GROTTO_GRASS_2,                logic->CanCutShrubs()),
+        LOCATION(RC_HF_SOUTHEAST_GROTTO_GRASS_3,                logic->CanCutShrubs()),
+        LOCATION(RC_HF_SOUTHEAST_GROTTO_GRASS_4,                logic->CanCutShrubs()),
     }, {
         //Exits
         Entrance(RR_HYRULE_FIELD, []{return true;}),
@@ -102,6 +106,10 @@ void RegionTable_Init_HyruleField() {
         LOCATION(RC_HF_OPEN_GROTTO_GOSSIP_STONE,            true),
         LOCATION(RC_HF_OPEN_GROTTO_BEEHIVE_LEFT,            logic->CanBreakLowerBeehives()),
         LOCATION(RC_HF_OPEN_GROTTO_BEEHIVE_RIGHT,           logic->CanBreakLowerBeehives()),
+        LOCATION(RC_HF_OPEN_GROTTO_GRASS_1,                 logic->CanCutShrubs()),
+        LOCATION(RC_HF_OPEN_GROTTO_GRASS_2,                 logic->CanCutShrubs()),
+        LOCATION(RC_HF_OPEN_GROTTO_GRASS_3,                 logic->CanCutShrubs()),
+        LOCATION(RC_HF_OPEN_GROTTO_GRASS_4,                 logic->CanCutShrubs()),
     }, {
         //Exits
         Entrance(RR_HYRULE_FIELD, []{return true;}),
@@ -136,6 +144,8 @@ void RegionTable_Init_HyruleField() {
         LOCATION(RC_HF_COW_GROTTO_GOSSIP_STONE,           true),
         LOCATION(RC_HF_COW_GROTTO_POT_1,                  logic->CanBreakPots()),
         LOCATION(RC_HF_COW_GROTTO_POT_2,                  logic->CanBreakPots()),
+        LOCATION(RC_HF_COW_GROTTO_GRASS_1,                logic->CanCutShrubs()),
+        LOCATION(RC_HF_COW_GROTTO_GRASS_2,                logic->CanCutShrubs()),
     }, {
         //Exits
         Entrance(RR_HF_COW_GROTTO, []{return true;}),
@@ -150,6 +160,10 @@ void RegionTable_Init_HyruleField() {
         LOCATION(RC_HF_NEAR_MARKET_GROTTO_GOSSIP_STONE,           true),
         LOCATION(RC_HF_NEAR_MARKET_GROTTO_BEEHIVE_LEFT,           logic->CanBreakLowerBeehives()),
         LOCATION(RC_HF_NEAR_MARKET_GROTTO_BEEHIVE_RIGHT,          logic->CanBreakLowerBeehives()),
+        LOCATION(RC_HF_NEAR_MARKET_GROTTO_GRASS_1,                logic->CanCutShrubs()),
+        LOCATION(RC_HF_NEAR_MARKET_GROTTO_GRASS_2,                logic->CanCutShrubs()),
+        LOCATION(RC_HF_NEAR_MARKET_GROTTO_GRASS_3,                logic->CanCutShrubs()),
+        LOCATION(RC_HF_NEAR_MARKET_GROTTO_GRASS_4,                logic->CanCutShrubs()),
     }, {
         //Exits
         Entrance(RR_HYRULE_FIELD, []{return true;}),
