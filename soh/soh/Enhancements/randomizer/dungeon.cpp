@@ -550,6 +550,20 @@ Dungeons::Dungeons() {
                                                 {},
                                                 {
                                                     // MQ Grass
+                                                    RC_JABU_JABUS_BELLY_MQ_FIRST_GRASS_1,
+                                                    RC_JABU_JABUS_BELLY_MQ_FIRST_GRASS_2,
+                                                    RC_JABU_JABUS_BELLY_MQ_PIT_GRASS_1,
+                                                    RC_JABU_JABUS_BELLY_MQ_PIT_GRASS_2,
+                                                    RC_JABU_JABUS_BELLY_MQ_BASEMENT_GRASS_1,
+                                                    RC_JABU_JABUS_BELLY_MQ_BASEMENT_GRASS_2,
+                                                    RC_JABU_JABUS_BELLY_MQ_BASEMENT_GRASS_3,
+                                                    RC_JABU_JABUS_BELLY_MQ_WIGGLERS_GRASS,
+                                                    RC_JABU_JABUS_BELLY_MQ_AFTER_BIG_OCTO_GRASS_1,
+                                                    RC_JABU_JABUS_BELLY_MQ_AFTER_BIG_OCTO_GRASS_2,
+                                                    RC_JABU_JABUS_BELLY_MQ_FALLING_LIKE_LIKE_GRASS,
+                                                    RC_JABU_JABUS_BELLY_MQ_BASEMENT_BOOMERANG_GRASS,
+                                                    RC_JABU_JABUS_BELLY_MQ_BEFORE_BOSS_GRASS_1,
+                                                    RC_JABU_JABUS_BELLY_MQ_BEFORE_BOSS_GRASS_2,
                                                 },
                                                 {},
                                                 {
