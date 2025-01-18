@@ -1040,8 +1040,8 @@ std::map<RandomizerCheck, RandomizerInf> rcToRandomizerInf = {
     { RC_KF_ADULT_GRASS_16,                                RAND_INF_KF_ADULT_GRASS_16 },
     { RC_KF_ADULT_GRASS_17,                                RAND_INF_KF_ADULT_GRASS_17 },
     { RC_KF_ADULT_GRASS_18,                                RAND_INF_KF_ADULT_GRASS_18 },
-    //{ RC_KF_ADULT_GRASS_19,                              RAND_INF_KF_ADULT_GRASS_19 },
-    //{ RC_KF_ADULT_GRASS_20,                              RAND_INF_KF_ADULT_GRASS_20 },
+    { RC_KF_ADULT_GRASS_19,                                RAND_INF_KF_ADULT_GRASS_19 },
+    { RC_KF_ADULT_GRASS_20,                                RAND_INF_KF_ADULT_GRASS_20 },
     { RC_LW_GRASS_1,                                       RAND_INF_LW_GRASS_1 },
     { RC_LW_GRASS_2,                                       RAND_INF_LW_GRASS_2 },
     { RC_LW_GRASS_3,                                       RAND_INF_LW_GRASS_3 },
@@ -2190,19 +2190,24 @@ FishIdentity Randomizer::IdentifyFish(s32 sceneNum, s32 actorParams) {
     return fishIdentity;
 }
 
-GrassIdentity Randomizer::IdentifyGrass(s32 sceneNum, s32 posX, s32 posZ, s32 respawnData) {
+GrassIdentity Randomizer::IdentifyGrass(s32 sceneNum, s32 posX, s32 posZ, s32 respawnData, s32 linkAge) {
     struct GrassIdentity grassIdentity;
 
     grassIdentity.randomizerInf = RAND_INF_MAX;
     grassIdentity.randomizerCheck = RC_UNKNOWN_CHECK;
 
-    //s32 actorParams = TWO_ACTOR_PARAMS(posX, posZ);
-
     if (sceneNum == SCENE_GROTTOS) {
         respawnData = TWO_ACTOR_PARAMS(posX, respawnData);
     } else {
+        // We'll just pretend it's always daytime for our market bushes.
         if (sceneNum == SCENE_MARKET_NIGHT) {
             sceneNum = SCENE_MARKET_DAY;
+        }
+
+        if (sceneNum == SCENE_KOKIRI_FOREST && linkAge == 0) {
+            if (posX == -498 || posX == -523) {
+                posZ = 0xFF;
+            }
         }
 
         respawnData = TWO_ACTOR_PARAMS(posX, posZ);

@@ -72,6 +72,8 @@ void RegionTable_Init_KokiriForest() {
         LOCATION(RC_KF_ADULT_GRASS_16,          logic->IsAdult && logic->CanCutShrubs()),
         LOCATION(RC_KF_ADULT_GRASS_17,          logic->IsAdult && logic->CanCutShrubs()),
         LOCATION(RC_KF_ADULT_GRASS_18,          logic->IsAdult && logic->CanCutShrubs()),
+        LOCATION(RC_KF_ADULT_GRASS_19,          logic->IsAdult && logic->CanCutShrubs()),
+        LOCATION(RC_KF_ADULT_GRASS_20,          logic->IsAdult && logic->CanCutShrubs()),
     }, {
         //Exits
         Entrance(RR_KF_LINKS_HOUSE,        []{return true;}),
