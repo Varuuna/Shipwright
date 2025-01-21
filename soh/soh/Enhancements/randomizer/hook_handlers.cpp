@@ -2374,6 +2374,8 @@ void RandomizerRegisterHooks() {
     static uint32_t shuffleGrassOnVanillaBehaviorHook = 0;
 
     GameInteractor::Instance->RegisterGameHook<GameInteractor::OnLoadGame>([](int32_t fileNum) {
+        ShipInit::Init("IS_RANDO");
+
         randomizerQueuedChecks = std::queue<RandomizerCheck>();
         randomizerQueuedCheck = RC_UNKNOWN_CHECK;
         randomizerQueuedItemEntry = GET_ITEM_NONE;
