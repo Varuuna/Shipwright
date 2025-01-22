@@ -171,6 +171,8 @@ std::vector<RandomizerCheck> DungeonInfo::GetEveryLocation() const {
     AddElementsToPool(locations, mqLocations);
     AddElementsToPool(locations, vanillaPots);
     AddElementsToPool(locations, mqPots);
+    AddElementsToPool(locations, vanillaGrass);
+    AddElementsToPool(locations, mqGrass);
     AddElementsToPool(locations, sharedLocations);
     AddElementsToPool(locations, bossRoomLocations);
     return locations;
