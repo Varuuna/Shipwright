@@ -524,7 +524,7 @@ Dungeons::Dungeons() {
                                                     RC_JABU_JABUS_BELLY_BARINADE_POT_4,
                                                     RC_JABU_JABUS_BELLY_BARINADE_POT_5,
                                                     RC_JABU_JABUS_BELLY_BARINADE_POT_6,
-                                                }, 
+                                                },
                                                 {
                                                     // MQ Pots
                                                     RC_JABU_JABUS_BELLY_MQ_ENTRANCE_POT_1,
@@ -544,7 +544,7 @@ Dungeons::Dungeons() {
                                                     RC_JABU_JABUS_BELLY_BARINADE_POT_4,
                                                     RC_JABU_JABUS_BELLY_BARINADE_POT_5,
                                                     RC_JABU_JABUS_BELLY_BARINADE_POT_6,
-                                                }, 
+                                                },
                                                 {},
                                                 {
                                                     // MQ Grass

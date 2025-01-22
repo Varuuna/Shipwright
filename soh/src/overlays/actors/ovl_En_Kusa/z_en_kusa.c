@@ -127,7 +127,7 @@ s32 EnKusa_SnapToFloor(EnKusa* this, PlayState* play, f32 yOffset) {
 void EnKusa_DropCollectible(EnKusa* this, PlayState* play) {
     s16 dropParams;
 
-    if (GameInteractor_Should(VB_GRASS_DROP_ITEM, false, this)) {
+    if (!GameInteractor_Should(VB_GRASS_DROP_ITEM, false, this)) {
         return;
     }
 
@@ -292,7 +292,7 @@ void EnKusa_WaitObject(EnKusa* this, PlayState* play) {
             EnKusa_SetupMain(this);
         }
 
-        if (GameInteractor_Should(VB_GRASS_SETUP_DRAW, false, this)) {
+        if (!GameInteractor_Should(VB_GRASS_SETUP_DRAW, false, this)) {
             return;
         }
 
