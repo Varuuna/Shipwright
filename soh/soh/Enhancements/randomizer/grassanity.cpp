@@ -21,7 +21,7 @@ extern "C" void EnKusa_RandomizerDraw(Actor* thisx, PlayState* play) {
     Gfx_SetupDL_25Opa(play->state.gfxCtx);
     gDPSetGrayscaleColor(POLY_OPA_DISP++, 175, 255, 0, 255);
 
-    if (Flags_GetRandomizerInf(grassActor->grassIdentity.randomizerInf) == 0) {
+    if (grassActor->grassIdentity.randomizerCheck != RC_MAX && Flags_GetRandomizerInf(grassActor->grassIdentity.randomizerInf) == 0) {
         gSPGrayscale(POLY_OPA_DISP++, true);
     }
 
@@ -37,7 +37,11 @@ extern "C" void EnKusa_RandomizerDraw(Actor* thisx, PlayState* play) {
 }
 
 uint8_t EnKusa_RandomizerHoldsItem(EnKusa* grassActor, PlayState* play) {
+    if (grassActor->grassIdentity.randomizerCheck == RC_MAX)
+        return false;
+
     RandomizerCheck rc = grassActor->grassIdentity.randomizerCheck;
+
     uint8_t isDungeon = Rando::StaticData::GetLocation(rc)->IsDungeon();
     uint8_t grassSetting = Rando::Context::GetInstance()->GetOption(RSK_GRASSANITY).GetContextOptionIndex();
 
@@ -93,6 +97,8 @@ void ShuffleGrass_OnVanillaBehaviorHandler(GIVanillaBehavior id, bool* should, v
         EnKusa* grassActor = va_arg(args, EnKusa*);
         if (EnKusa_RandomizerHoldsItem(grassActor, gPlayState)) {
             EnKusa_RandomizerSpawnCollectible(grassActor, gPlayState);
+            grassActor->grassIdentity.randomizerCheck = RC_MAX;
+            grassActor->grassIdentity.randomizerInf = RAND_INF_MAX;
             *should = true;
         } else {
             *should = false;
