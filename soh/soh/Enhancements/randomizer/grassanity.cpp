@@ -82,6 +82,8 @@ void ShuffleGrass_OnVanillaBehaviorHandler(GIVanillaBehavior id, bool* should, v
         EnKusa* grassActor = va_arg(args, EnKusa*);
         if (EnKusa_RandomizerHoldsItem(grassActor, gPlayState)) {
             grassActor->actor.draw = (ActorFunc)EnKusa_RandomizerDraw;
+            *should = true;
+        } else {
             *should = false;
         }
     }
@@ -91,6 +93,8 @@ void ShuffleGrass_OnVanillaBehaviorHandler(GIVanillaBehavior id, bool* should, v
         EnKusa* grassActor = va_arg(args, EnKusa*);
         if (EnKusa_RandomizerHoldsItem(grassActor, gPlayState)) {
             EnKusa_RandomizerSpawnCollectible(grassActor, gPlayState);
+            *should = true;
+        } else {
             *should = false;
         }
     }

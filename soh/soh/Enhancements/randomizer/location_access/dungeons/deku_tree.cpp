@@ -94,7 +94,13 @@ void RegionTable_Init_DekuTree() {
         Entrance(RR_DEKU_TREE_OUTSIDE_BOSS_ROOM,   []{return false;}),
     });
 
-    areaTable[RR_DEKU_TREE_BASEMENT_SCRUB_ROOM] = Region("Deku Tree Basement Scrub Room", "Deku Tree", {RA_DEKU_TREE}, NO_DAY_NIGHT_CYCLE, {}, {}, {
+    areaTable[RR_DEKU_TREE_BASEMENT_SCRUB_ROOM] = Region("Deku Tree Basement Scrub Room", "Deku Tree", {RA_DEKU_TREE}, NO_DAY_NIGHT_CYCLE, {}, {
+        //Location
+        LOCATION(RC_DEKU_TREE_BASEMENT_SCRUB_ROOM_GRASS_1, logic->CanCutShrubs()),
+        LOCATION(RC_DEKU_TREE_BASEMENT_SCRUB_ROOM_GRASS_2, logic->CanCutShrubs()),
+        LOCATION(RC_DEKU_TREE_BASEMENT_SCRUB_ROOM_GRASS_3, logic->CanCutShrubs()),
+        LOCATION(RC_DEKU_TREE_BASEMENT_SCRUB_ROOM_GRASS_4, logic->CanCutShrubs()),
+    }, {
         //Exits
         Entrance(RR_DEKU_TREE_BASEMENT_LOWER,            []{return true;}),
         Entrance(RR_DEKU_TREE_BASEMENT_WATER_ROOM_FRONT, []{return Here(RR_DEKU_TREE_BASEMENT_SCRUB_ROOM, []{return logic->CanUse(RG_FAIRY_SLINGSHOT) || logic->CanUse(RG_FAIRY_BOW);});}),
@@ -106,7 +112,11 @@ void RegionTable_Init_DekuTree() {
         Entrance(RR_DEKU_TREE_BASEMENT_WATER_ROOM_BACK, []{return logic->HasItem(RG_BRONZE_SCALE) || ctx->GetTrickOption(RT_DEKU_B1_BACKFLIP_OVER_SPIKED_LOG);}),
     });
 
-    areaTable[RR_DEKU_TREE_BASEMENT_WATER_ROOM_BACK] = Region("Deku Tree Basement Water Room Back", "Deku Tree", {RA_DEKU_TREE}, NO_DAY_NIGHT_CYCLE, {}, {}, {
+    areaTable[RR_DEKU_TREE_BASEMENT_WATER_ROOM_BACK] = Region("Deku Tree Basement Water Room Back", "Deku Tree", {RA_DEKU_TREE}, NO_DAY_NIGHT_CYCLE, {}, {
+        //Locations
+        LOCATION(RC_DEKU_TREE_BASEMENT_SPIKE_ROLLER_GRASS_1, logic->CanCutShrubs()),
+        LOCATION(RC_DEKU_TREE_BASEMENT_SPIKE_ROLLER_GRASS_2, logic->CanCutShrubs()),
+    }, {
         //Exits
         Entrance(RR_DEKU_TREE_BASEMENT_WATER_ROOM_FRONT, []{return logic->HasItem(RG_BRONZE_SCALE) || ctx->GetTrickOption(RT_DEKU_B1_BACKFLIP_OVER_SPIKED_LOG);}),
         Entrance(RR_DEKU_TREE_BASEMENT_TORCH_ROOM,       []{return true;}),
@@ -436,14 +446,14 @@ void RegionTable_Init_DekuTree() {
         // Locations
         LOCATION(RC_QUEEN_GOHMA,                   logic->DekuTreeClear),
         LOCATION(RC_DEKU_TREE_QUEEN_GOHMA_HEART,   logic->DekuTreeClear),
-        LOCATION(RC_DEKU_TREE_QUEEN_GOHMA_GRASS_1, logic->CanCutShrubs()),
-        LOCATION(RC_DEKU_TREE_QUEEN_GOHMA_GRASS_2, logic->CanCutShrubs()),
-        LOCATION(RC_DEKU_TREE_QUEEN_GOHMA_GRASS_3, logic->CanCutShrubs()),
-        LOCATION(RC_DEKU_TREE_QUEEN_GOHMA_GRASS_4, logic->CanCutShrubs()),
-        LOCATION(RC_DEKU_TREE_QUEEN_GOHMA_GRASS_5, logic->CanCutShrubs()),
-        LOCATION(RC_DEKU_TREE_QUEEN_GOHMA_GRASS_6, logic->CanCutShrubs()),
-        LOCATION(RC_DEKU_TREE_QUEEN_GOHMA_GRASS_7, logic->CanCutShrubs()),
-        LOCATION(RC_DEKU_TREE_QUEEN_GOHMA_GRASS_8, logic->CanCutShrubs()),
+        LOCATION(RC_DEKU_TREE_QUEEN_GOHMA_GRASS_1, logic->DekuTreeClear && logic->CanCutShrubs()),
+        LOCATION(RC_DEKU_TREE_QUEEN_GOHMA_GRASS_2, logic->DekuTreeClear && logic->CanCutShrubs()),
+        LOCATION(RC_DEKU_TREE_QUEEN_GOHMA_GRASS_3, logic->DekuTreeClear && logic->CanCutShrubs()),
+        LOCATION(RC_DEKU_TREE_QUEEN_GOHMA_GRASS_4, logic->DekuTreeClear && logic->CanCutShrubs()),
+        LOCATION(RC_DEKU_TREE_QUEEN_GOHMA_GRASS_5, logic->DekuTreeClear && logic->CanCutShrubs()),
+        LOCATION(RC_DEKU_TREE_QUEEN_GOHMA_GRASS_6, logic->DekuTreeClear && logic->CanCutShrubs()),
+        LOCATION(RC_DEKU_TREE_QUEEN_GOHMA_GRASS_7, logic->DekuTreeClear && logic->CanCutShrubs()),
+        LOCATION(RC_DEKU_TREE_QUEEN_GOHMA_GRASS_8, logic->DekuTreeClear && logic->CanCutShrubs()),
     }, {
         // Exits
         Entrance(RR_DEKU_TREE_BOSS_ENTRYWAY, []{return true;}),
