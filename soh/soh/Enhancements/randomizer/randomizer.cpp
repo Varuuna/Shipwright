@@ -2199,8 +2199,25 @@ GrassIdentity Randomizer::IdentifyGrass(s32 sceneNum, s32 posX, s32 posZ, s32 re
         // We'll just pretend it's always daytime for our market bushes.
         if (sceneNum == SCENE_MARKET_NIGHT) {
             sceneNum = SCENE_MARKET_DAY;
+
+            /*
+                The two bushes by the tree are not in the same spot
+                between night and day. We'll assume the coordinates
+                of the daytime bushes so that we can count them as
+                the same locations.
+            */
+            if (posX == -74) {
+                posX = -106;
+                posZ = 277;
+            }
+            if (posX == -87) {
+                posX = -131;
+                posZ = 225;
+            }
         }
 
+        // The two bushes behind the sign in KF should be separated
+        // locations between Child and Adult.
         if (sceneNum == SCENE_KOKIRI_FOREST && linkAge == 0) {
             if (posX == -498 || posX == -523) {
                 posZ = 0xFF;
