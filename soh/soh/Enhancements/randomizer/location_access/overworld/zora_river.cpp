@@ -59,8 +59,7 @@ void RegionTable_Init_ZoraRiver() {
         LOCATION(RC_ZR_BENEATH_WATERFALL_RIGHT_RUPEE,        logic->IsAdult && (logic->HasItem(RG_BRONZE_SCALE) || logic->CanUse(RG_IRON_BOOTS) || logic->CanUse(RG_BOOMERANG))),
         LOCATION(RC_ZR_NEAR_GROTTOS_GOSSIP_STONE,            true),
         LOCATION(RC_ZR_NEAR_DOMAIN_GOSSIP_STONE,             true),
-        LOCATION(RC_ZR_LEDGE_CHILD_GRASS,                    logic->IsChild && logic->CanCutShrubs()),
-        LOCATION(RC_ZR_LEDGE_ADULT_GRASS,                    logic->IsAdult && logic->CanCutShrubs()),
+        LOCATION(RC_ZR_NEAR_FREESTANDING_POH_GRASS,          logic->CanCutShrubs()),
     }, {
         //Exits
         Entrance(RR_ZR_FRONT,            []{return true;}),

@@ -1183,8 +1183,7 @@ std::map<RandomizerCheck, RandomizerInf> rcToRandomizerInf = {
     { RC_ZR_GRASS_10,                                      RAND_INF_ZR_GRASS_10 },
     { RC_ZR_GRASS_11,                                      RAND_INF_ZR_GRASS_11 },
     { RC_ZR_GRASS_12,                                      RAND_INF_ZR_GRASS_12 },
-    { RC_ZR_LEDGE_CHILD_GRASS,                             RAND_INF_ZR_LEDGE_CHILD_GRASS },
-    { RC_ZR_LEDGE_ADULT_GRASS,                             RAND_INF_ZR_LEDGE_ADULT_GRASS },
+    { RC_ZR_NEAR_FREESTANDING_POH_GRASS,                   RAND_INF_ZR_NEAR_FREESTANDING_POH_GRASS },
     // Grotto Grass
     { RC_KF_STORMS_GROTTO_GRASS_1,                         RAND_INF_KF_STORMS_GROTTO_GRASS_1 },
     { RC_KF_STORMS_GROTTO_GRASS_2,                         RAND_INF_KF_STORMS_GROTTO_GRASS_2 },
@@ -2213,6 +2212,18 @@ GrassIdentity Randomizer::IdentifyGrass(s32 sceneNum, s32 posX, s32 posZ, s32 re
             if (posX == -87) {
                 posX = -131;
                 posZ = 225;
+            }
+        }
+
+        /*
+            Same as with Market. ZR has a bush slightly off pos
+            between Child and Adult. This is to merge them into
+            a single location.
+        */
+        if (sceneNum == SCENE_ZORAS_RIVER) {
+            if (posX == 233) {
+                posX = 231;
+                posZ = -1478;
             }
         }
 
