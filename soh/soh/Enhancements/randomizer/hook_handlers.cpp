@@ -16,7 +16,6 @@
 #include "soh/Notification/Notification.h"
 #include "soh/SaveManager.h"
 #include "soh/Enhancements/randomizer/ShuffleFairies.h"
-#include "soh/Enhancements/randomizer/grassanity.h"
 
 extern "C" {
 #include "macros.h"
@@ -2372,9 +2371,6 @@ void RandomizerRegisterHooks() {
 
     static uint32_t shuffleFreestandingOnVanillaBehaviorHook = 0;
 
-    static uint32_t shuffleGrassOnActorInitHook = 0;
-    static uint32_t shuffleGrassOnVanillaBehaviorHook = 0;
-
     GameInteractor::Instance->RegisterGameHook<GameInteractor::OnLoadGame>([](int32_t fileNum) {
         ShipInit::Init("IS_RANDO");
 
@@ -2410,9 +2406,6 @@ void RandomizerRegisterHooks() {
 
         GameInteractor::Instance->UnregisterGameHook<GameInteractor::OnVanillaBehavior>(shuffleFreestandingOnVanillaBehaviorHook);
 
-        GameInteractor::Instance->UnregisterGameHook<GameInteractor::OnActorInit>(shuffleGrassOnActorInitHook);
-        GameInteractor::Instance->UnregisterGameHook<GameInteractor::OnVanillaBehavior>(shuffleGrassOnVanillaBehaviorHook);
-
         onFlagSetHook = 0;
         onSceneFlagSetHook = 0;
         onPlayerUpdateForRCQueueHook = 0;
@@ -2440,9 +2433,6 @@ void RandomizerRegisterHooks() {
         shufflePotsOnVanillaBehaviorHook = 0;
 
         shuffleFreestandingOnVanillaBehaviorHook = 0;
-
-        shuffleGrassOnActorInitHook = 0;
-        shuffleGrassOnVanillaBehaviorHook = 0;
 
         ShuffleFairies_UnregisterHooks();
 
@@ -2495,11 +2485,6 @@ void RandomizerRegisterHooks() {
         
         if (RAND_GET_OPTION(RSK_SHUFFLE_FAIRIES)) {
             ShuffleFairies_RegisterHooks();
-        }
-
-        if (RAND_GET_OPTION(RSK_GRASSANITY)) {
-            shuffleGrassOnActorInitHook = GameInteractor::Instance->RegisterGameHook<GameInteractor::OnActorInit>(EnKusa_RandomizerInit);
-            shuffleGrassOnVanillaBehaviorHook = GameInteractor::Instance->RegisterGameHook<GameInteractor::OnVanillaBehavior>(ShuffleGrass_OnVanillaBehaviorHandler);
         }
     });
 }
