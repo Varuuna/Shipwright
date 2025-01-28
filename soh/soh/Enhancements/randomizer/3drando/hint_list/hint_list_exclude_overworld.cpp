@@ -1950,6 +1950,10 @@ void StaticData::HintTable_Init_Exclude_Overworld() {
 
     hintTextTable[RHT_GF_KITCHEN_SUN_FAIRY] = HintText(CustomMessage("They say that #calling the sun in a guarded kitchen# exposes #[[1]]#.", {QM_RED, QM_GREEN}));
 
+    hintTextTable[RHT_LW_DEKU_SCRUB_GROTTO_SUN_FAIRY] = HintText(CustomMessage("They say that #calling the sun for scrubs in the Lost Woods# reveals #[[1]]#.", { QM_RED, QM_GREEN }));
+
+    hintTextTable[RHT_GRAVEYARD_ROYAL_FAMILYS_TOMB_SUN_FAIRY] = HintText(CustomMessage("They say that #calling the sun in a royal tomb# reveals #[[1]]#.", { QM_RED, QM_GREEN }));
+
     hintTextTable[RHT_KF_GRASS] = HintText(CustomMessage("They say that #cutting some grass in a forest# reveals #[[1]]#.", { QM_RED, QM_GREEN }));
 
     hintTextTable[RHT_LW_GRASS] = HintText(CustomMessage("They say that #cutting some grass in the woods# reveals #[[1]]#.", { QM_RED, QM_GREEN }));

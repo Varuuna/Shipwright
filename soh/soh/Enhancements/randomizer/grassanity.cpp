@@ -43,7 +43,7 @@ uint8_t EnKusa_RandomizerHoldsItem(EnKusa* grassActor, PlayState* play) {
     RandomizerCheck rc = grassActor->grassIdentity.randomizerCheck;
 
     uint8_t isDungeon = Rando::StaticData::GetLocation(rc)->IsDungeon();
-    uint8_t grassSetting = Rando::Context::GetInstance()->GetOption(RSK_GRASSANITY).GetContextOptionIndex();
+    uint8_t grassSetting = Rando::Context::GetInstance()->GetOption(RSK_GRASSANITY).Get();
 
     // Don't pull randomized item if grass isn't randomized or is already checked
     if (!IS_RANDO || (grassSetting == RO_SHUFFLE_GRASS_OVERWORLD && isDungeon) ||
