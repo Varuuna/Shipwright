@@ -1,5 +1,5 @@
-#ifndef GRASSANITY_H
-#define GRASSANITY_H
+#ifndef SHUFFLEGRASS_H
+#define SHUFFLEGRASS_H
 
 #include <z64.h>
 #include <soh/OTRGlobals.h>
@@ -14,4 +14,4 @@ void EnKusa_RandomizerInit(void* actorRef);
 
 void ShuffleGrass_OnVanillaBehaviorHandler(GIVanillaBehavior id, bool* should, va_list originalArgs);
 
-#endif //GRASSANITY_H
+#endif //SHUFFLEGRASS_H
