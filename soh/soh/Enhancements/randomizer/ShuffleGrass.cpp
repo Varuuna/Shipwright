@@ -94,7 +94,7 @@ void RegisterShuffleGrass() {
             *should = false;
         } else {
             *should = true;
-        }aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        }
     });
 
     COND_VB_SHOULD(VB_GRASS_DROP_ITEM, shouldRegister, {
