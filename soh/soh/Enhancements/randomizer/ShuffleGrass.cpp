@@ -1,4 +1,4 @@
-#include "shufflegrass.h"
+#include "ShuffleGrass.h"
 #include "soh_assets.h"
 #include "static_data.h"
 
@@ -94,7 +94,7 @@ void RegisterShuffleGrass() {
             *should = false;
         } else {
             *should = true;
-        }
+        }aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     });
 
     COND_VB_SHOULD(VB_GRASS_DROP_ITEM, shouldRegister, {
