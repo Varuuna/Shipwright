@@ -12,6 +12,4 @@ void EnKusa_RandomizerInit(void* actorRef);
 };
 #endif
 
-void ShuffleGrass_OnVanillaBehaviorHandler(GIVanillaBehavior id, bool* should, va_list originalArgs);
-
 #endif //SHUFFLEGRASS_H
