@@ -5,6 +5,7 @@
 
 #include "libultraship/libultraship.h"
 #include "GameInteractionEffect.h"
+#include "vanilla-behavior/GIVanillaBehavior.h"
 #include "soh/Enhancements/item-tables/ItemTableTypes.h"
 #include <z64.h>
 
@@ -312,9 +313,6 @@ typedef enum {
     VB_DOOR_BE_LOCKED,
     // Vanilla condition: ((doorActor->params >> 7) & 7) == 3
     VB_DOOR_PLAY_SCENE_TRANSITION,
-    // Opt: *EnKusa
-    VB_GRASS_SETUP_DRAW,
-    VB_GRASS_DROP_ITEM,
 
     /*** Play Cutscenes ***/
 
