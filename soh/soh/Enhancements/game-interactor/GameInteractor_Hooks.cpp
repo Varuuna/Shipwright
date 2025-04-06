@@ -19,6 +19,9 @@ void GameInteractor_ExecuteOnExitGame(int32_t fileNum) {
 }
 
 void GameInteractor_ExecuteOnGameStateMainStart() {
+    // Cleanup all hooks at the start of each frame
+    GameInteractor::Instance->RemoveAllQueuedHooks();
+
     GameInteractor::Instance->ExecuteHooks<GameInteractor::OnGameStateMainStart>();
 }
 
@@ -140,7 +143,7 @@ void GameInteractor_ExecuteOnBossDefeat(void* actor) {
     GameInteractor::Instance->ExecuteHooksForFilter<GameInteractor::OnBossDefeat>(actor);
 }
 
-void GameInteractor_ExecuteOnTimestamp (u8 item) {
+void GameInteractor_ExecuteOnTimestamp(u8 item) {
     GameInteractor::Instance->ExecuteHooks<GameInteractor::OnTimestamp>(item);
 }
 
@@ -154,6 +157,22 @@ void GameInteractor_ExecuteOnPlayerHealthChange(int16_t amount) {
 
 void GameInteractor_ExecuteOnPlayerBottleUpdate(int16_t contents) {
     GameInteractor::Instance->ExecuteHooks<GameInteractor::OnPlayerBottleUpdate>(contents);
+}
+
+void GameInteractor_ExecuteOnPlayerHoldUpShield() {
+    GameInteractor::Instance->ExecuteHooks<GameInteractor::OnPlayerHoldUpShield>();
+}
+
+void GameInteractor_ExecuteOnPlayerFirstPersonControl(Player* player) {
+    GameInteractor::Instance->ExecuteHooks<GameInteractor::OnPlayerFirstPersonControl>(player);
+}
+
+void GameInteractor_ExecuteOnPlayerShieldControl(float_t* sp50, float_t* sp54) {
+    GameInteractor::Instance->ExecuteHooks<GameInteractor::OnPlayerShieldControl>(sp50, sp54);
+}
+
+void GameInteractor_ExecuteOnPlayerProcessStick() {
+    GameInteractor::Instance->ExecuteHooks<GameInteractor::OnPlayerProcessStick>();
 }
 
 void GameInteractor_ExecuteOnPlayDestroy() {
@@ -264,7 +283,8 @@ void GameInteractor_ExecuteOnUpdateFileQuestSelection(uint8_t questIndex) {
 }
 
 void GameInteractor_ExecuteOnUpdateFileBossRushOptionSelection(uint8_t optionIndex, uint8_t optionValue) {
-    GameInteractor::Instance->ExecuteHooks<GameInteractor::OnUpdateFileBossRushOptionSelection>(optionIndex, optionValue);
+    GameInteractor::Instance->ExecuteHooks<GameInteractor::OnUpdateFileBossRushOptionSelection>(optionIndex,
+                                                                                                optionValue);
 }
 
 void GameInteractor_ExecuteOnUpdateFileNameSelection(int16_t charCode) {
@@ -283,7 +303,7 @@ void GameInteractor_RegisterOnAssetAltChange(void (*fn)(void)) {
     GameInteractor::Instance->RegisterGameHook<GameInteractor::OnAssetAltChange>(fn);
 }
 
-//MARK: Pause Menu
+// MARK: Pause Menu
 
 void GameInteractor_ExecuteOnKaleidoUpdate() {
     GameInteractor::Instance->ExecuteHooks<GameInteractor::OnKaleidoUpdate>();
