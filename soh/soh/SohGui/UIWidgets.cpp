@@ -1132,6 +1132,10 @@ void DrawFlagArray8Mask(const std::string& name, uint8_t& flags, Colors color) {
     }
     ImGui::PopID();
 }
+
+//bool InputString(const char* label, std::string* value, ImGuiInputTextFlags flags) {
+//    return ImGui::InputText(label, (char*)value->c_str(), value->capacity() + 1, ImGuiInputTextFlags_CallbackResize | flags, InputTextResizeCallback, value);
+//}
 } // namespace UIWidgets
 
 ImVec4 GetRandomValue() {
@@ -1154,10 +1158,6 @@ ImVec4 GetRandomValue() {
 Color_RGBA8 RGBA8FromVec(ImVec4 vec) {
     Color_RGBA8 color = { vec.x * 255, vec.y * 255, vec.z * 255, vec.w * 255 };
     return color;
-}
-
-bool InputString(const char* label, std::string* value, ImGuiInputTextFlags flags) {
-    return ImGui::InputText(label, (char*)value->c_str(), value->capacity() + 1, ImGuiInputTextFlags_CallbackResize | flags, InputTextResizeCallback, value);
 }
 
 ImVec4 VecFromRGBA8(Color_RGBA8 color) {

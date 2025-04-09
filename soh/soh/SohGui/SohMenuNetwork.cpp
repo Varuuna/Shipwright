@@ -5,6 +5,7 @@
 #include "SohGui.hpp"
 #include <soh/Network/Sail/Sail.h>
 #include <soh/Network/CrowdControl/CrowdControl.h>
+#include <soh/Network/Anchor/Anchor.h>
 
 namespace SohGui {
 
@@ -14,6 +15,87 @@ using namespace UIWidgets;
 void SohMenu::AddMenuNetwork() {
     // Add Network Menu
     AddMenuEntry("Network", CVAR_SETTING("Menu.NetworkSidebarSection"));
+
+    // Anchor
+    WidgetPath anchorPath = { "Network", "Anchor", SECTION_COLUMN_1 };
+    AddSidebarEntry("Network", anchorPath.sidebarName, 3);
+
+    AddWidget(anchorPath,
+              "TODO: Explain Anchor",
+              WIDGET_TEXT);
+    AddWidget(anchorPath, "Host & Port", WIDGET_CUSTOM).CustomFunction([](WidgetInfo& info) {
+        ImGui::BeginDisabled(Anchor::Instance->isEnabled);
+        ImGui::Text("%s", info.name.c_str());
+        CVarInputString("##HostAnchor", CVAR_REMOTE_ANCHOR("Host"),
+                        InputOptions()
+                            .Color(THEME_COLOR)
+                            .PlaceholderText("anchor.proxysaw.dev")
+                            .DefaultValue("anchor.proxysaw.dev")
+                            .Size(ImVec2(ImGui::GetFontSize() * 15, 0))
+                            .LabelPosition(LabelPositions::None));
+        ImGui::SameLine();
+        ImGui::Text(":");
+        ImGui::SameLine();
+        CVarInputInt("##PortAnchor", CVAR_REMOTE_ANCHOR("Port"),
+                     InputOptions()
+                         .Color(THEME_COLOR)
+                         .PlaceholderText("43383")
+                         .DefaultValue("43383")
+                         .Size(ImVec2(ImGui::GetFontSize() * 5, 0))
+                         .LabelPosition(LabelPositions::None));
+        ImGui::EndDisabled();
+    });
+    AddWidget(anchorPath, "Name", WIDGET_CUSTOM).CustomFunction([](WidgetInfo& info) {
+        ImGui::BeginDisabled(Anchor::Instance->isEnabled);
+        std::string anchorName = CVarGetString(CVAR_REMOTE_ANCHOR("Name"), "");
+        ImGui::Text("Name");
+        if (UIWidgets::InputString("##Name", &anchorName)) {
+            CVarSetString(CVAR_REMOTE_ANCHOR("Name"), anchorName.c_str());
+            Ship::Context::GetInstance()->GetWindow()->GetGui()->SaveConsoleVariablesNextFrame();
+        }
+        ImGui::EndDisabled();
+    });
+    AddWidget(anchorPath, "Room ID", WIDGET_CUSTOM).CustomFunction([](WidgetInfo& info) {
+        ImGui::BeginDisabled(Anchor::Instance->isEnabled);
+        std::string anchorRoomId = CVarGetString(CVAR_REMOTE_ANCHOR("RoomId"), "");
+        ImGui::Text("Room ID");
+        if (UIWidgets::InputString("##RoomId", &anchorRoomId)) {
+            CVarSetString(CVAR_REMOTE_ANCHOR("RoomId"), anchorRoomId.c_str());
+            Ship::Context::GetInstance()->GetWindow()->GetGui()->SaveConsoleVariablesNextFrame();
+        }
+        ImGui::EndDisabled();
+    });
+    AddWidget(anchorPath, "Enable##Anchor", WIDGET_BUTTON)
+        .PreFunc([](WidgetInfo& info) {
+            std::string host = CVarGetString(CVAR_REMOTE_ANCHOR("Host"), "anchor.proxysaw.dev");
+            uint16_t port = CVarGetInteger(CVAR_REMOTE_ANCHOR("Port"), 43383);
+            info.options->disabled = !(!SohUtils::IsStringEmpty(host) && port > 1024 && port < 65535);
+            if (Anchor::Instance->isEnabled) {
+                info.name = "Disable##Anchor";
+            } else {
+                info.name = "Enable##Anchor";
+            }
+        })
+        .Callback([](WidgetInfo& info) {
+            if (Anchor::Instance->isEnabled) {
+                CVarClear(CVAR_REMOTE_ANCHOR("Enabled"));
+                Ship::Context::GetInstance()->GetWindow()->GetGui()->SaveConsoleVariablesNextFrame();
+                Anchor::Instance->Disable();
+            } else {
+                CVarSetInteger(CVAR_REMOTE_ANCHOR("Enabled"), 1);
+                Ship::Context::GetInstance()->GetWindow()->GetGui()->SaveConsoleVariablesNextFrame();
+                Anchor::Instance->Enable();
+            }
+        });
+    AddWidget(anchorPath, "Connecting...##Anchor", WIDGET_TEXT).PreFunc([](WidgetInfo& info) {
+        info.isHidden = !Anchor::Instance->isEnabled;
+        if (Anchor::Instance->isConnected) {
+            info.name = "Connected##Anchor";
+        } else {
+            info.name = "Connecting...##Anchor";
+        }
+    });
+
 
     // Sail
     WidgetPath path = { "Network", "Sail", SECTION_COLUMN_1 };

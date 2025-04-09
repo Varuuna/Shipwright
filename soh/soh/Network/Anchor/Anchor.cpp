@@ -328,7 +328,7 @@ void Anchor::DrawMenu() {
     }
     ImGui::Text("Room ID");
     ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
-    if (UIWidgets::InputString("##RoomId", &anchorRoomId, isEnabled ? ImGuiInputTextFlags_Password : 0)) {
+    if (UIWidgets::InputString("##RoomId", &anchorRoomId)) {
         CVarSetString(CVAR_REMOTE_ANCHOR("RoomId"), anchorRoomId.c_str());
         Ship::Context::GetInstance()->GetWindow()->GetGui()->SaveConsoleVariablesNextFrame();
     }
@@ -365,8 +365,8 @@ void Anchor::DrawMenu() {
             if (roomState.ownerClientId == ownClientId) {
                 if (ImGui::BeginMenu("Room Settings")) {
                     ImGui::Text("PvP Mode:");
-                    static const char* pvpModes[3] = { "Off", "On", "On + Friendly Fire" };
-                    if (UIWidgets::EnhancementCombobox(CVAR_REMOTE_ANCHOR("RoomSettings.PvpMode"), pvpModes, 1)) {
+                    /*static const char* pvpModes[3] = { "Off", "On", "On + Friendly Fire" };
+                    if (UIWidgets::Combobox(CVAR_REMOTE_ANCHOR("RoomSettings.PvpMode"), 1, pvpModes, pvpModes)) {
                         SendPacket_UpdateRoomState();
                     }
                     ImGui::Text("Show Locations For:");
@@ -378,7 +378,7 @@ void Anchor::DrawMenu() {
                     static const char* teleportModes[3] = { "None", "Team Only", "All" };
                     if (UIWidgets::EnhancementCombobox(CVAR_REMOTE_ANCHOR("RoomSettings.TeleportMode"), teleportModes, 1)) {
                         SendPacket_UpdateRoomState();
-                    }
+                    }*/
                     ImGui::EndMenu();
                 }
             }
